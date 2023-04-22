@@ -2,8 +2,11 @@ import { Body, Controller, Get, Post, Patch, Param, Query, Delete } from '@nestj
 import { CreateUserDto } from './dtos/create-user.dto';
 import { UpdateUserDto } from './dtos/update-user.dto';
 import { UsersService } from './users.service';
+import { Serialize } from 'src/interceptors/serialize.interceptor';
+import { UserDto } from './dtos/user.dto';
 
 @Controller('auth')
+@Serialize(UserDto) // Use ona all requests
 export class UsersController {
   constructor(private usersService: UsersService) {}
 
@@ -14,15 +17,16 @@ export class UsersController {
 
   @Get('/all')
   findUsers() {
-    console.log('find all users');
     return this.usersService.findAll();
   }
+
   @Get()
   findUsersByEmail(@Query('email') email: string) {
     return this.usersService.findByEmail(email);
   }
 
-  // requests with params have to be on the bottom
+  // --------- requests with params have to be on the bottom ----------------
+
   @Get('/:id')
   findUser(@Param('id') id: string) {
     return this.usersService.findOne(Number(id));
