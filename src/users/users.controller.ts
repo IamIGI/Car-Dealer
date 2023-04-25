@@ -54,6 +54,7 @@ export class UsersController {
   }
 
   @Post('/signout')
+  @HttpCode(200)
   signOut(@Session() session: any) {
     session.userID = null;
   }

@@ -1,7 +1,13 @@
 {
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.tabSize": 2
   },
-  "cSpell.words": ["signin"]
+  "cSpell.words": ["signin"],
+  // I want my default to be 4, but JavaScript/JSON to be 2
+  "editor.tabSize": 2,
+  "[json]": {
+    "editor.tabSize": 2
+  }
 }
