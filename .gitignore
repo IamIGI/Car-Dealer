@@ -1,5 +1,8 @@
 #OWN
+test.sqlite
 db.sqlite
+.env.development
+.env.test
 
 # compiled output
 /dist
