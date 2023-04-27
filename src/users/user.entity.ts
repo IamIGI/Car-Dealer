@@ -14,10 +14,8 @@ export class User {
   @OneToMany(() => Report, (report) => report.user)
   reports: Report[];
 
-  // @AfterLoad()
-  // logLoad() {
-  //   console.log('Fetch user with Id: ', this.id);
-  // }
+  @Column({ default: true })
+  admin: boolean;
 
   @AfterInsert()
   logInsert() {
