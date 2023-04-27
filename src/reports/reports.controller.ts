@@ -29,7 +29,7 @@ export class ReportsController {
 
   @Get()
   getEstimate(@Query() query: GetEstimateDto) {
-    console.log(query);
+    return this.reportsService.creteEstimate(query);
   }
 
   @Get('/all')
