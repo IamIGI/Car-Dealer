@@ -23,7 +23,7 @@ const cookieSession = require('cookie-session');
         return {
           type: 'sqlite',
           database: config.get<string>('DB_NAME'),
-          synchronize: true,
+          synchronize: true, //you can see changed entity in real time, useful during development. Better turn off for production
           entities: [User, Report],
         };
       },
@@ -43,11 +43,12 @@ const cookieSession = require('cookie-session');
   ],
 })
 export class AppModule {
+  constructor(private configService: ConfigService) {}
   configure(consumer: MiddlewareConsumer) {
     consumer
       .apply(
         cookieSession({
-          keys: ['randomString'], //encrypt session message
+          keys: [this.configService.get('COOKIE_KEY')], //encrypt session message
         })
       )
       .forRoutes('*');
