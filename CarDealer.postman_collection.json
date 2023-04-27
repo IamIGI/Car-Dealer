@@ -1,0 +1,432 @@
+{
+	"info": {
+		"_postman_id": "a930d741-fa20-40be-9879-72de9bdebad1",
+		"name": "CarDealer",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19002329"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Signup",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"user@gmail.com\",\r\n    \"password\": \"User123!\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/auth/signup",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Signin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"user@gmail.com\",\r\n    \"password\": \"User123!\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/auth/signin",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"auth",
+								"signin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get the currently singin user",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/auth/whoami",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"auth",
+								"whoami"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Signout",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/auth/signout",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"auth",
+								"signout"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Find all users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/auth/all",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"auth",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/auth/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"auth",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find users with given email",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/auth?email=user4@gmail.com",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"auth"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "user4@gmail.com"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete user",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/auth/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"auth",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "4"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update user",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"password\": \"asdassd\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/auth/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"auth",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Reports",
+			"item": [
+				{
+					"name": "Add Report",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"make\": \"Ford\",\r\n    \"model\": \"mustang\",\r\n    \"year\": 1982,\r\n    \"mileage\": 50000,\r\n    \"lng\": 45,\r\n    \"lat\": 45,\r\n    \"price\": 20000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/reports",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"reports"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find all reports",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/reports/all",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"reports",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Change appoval",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"approved\":true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/reports/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"reports",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "12"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Estimate",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/reports?make=ford&model=mustang&lng=45&lat=45&mileage=2000&year=1981",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"reports"
+							],
+							"query": [
+								{
+									"key": "make",
+									"value": "ford"
+								},
+								{
+									"key": "model",
+									"value": "mustang"
+								},
+								{
+									"key": "lng",
+									"value": "45"
+								},
+								{
+									"key": "lat",
+									"value": "45"
+								},
+								{
+									"key": "mileage",
+									"value": "2000"
+								},
+								{
+									"key": "year",
+									"value": "1981"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "temporary requests",
+			"item": [
+				{
+					"name": "Set Color",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/auth/colors/:color",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"auth",
+								"colors",
+								":color"
+							],
+							"variable": [
+								{
+									"key": "color",
+									"value": "red"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "fetch colors",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/auth/colors",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"auth",
+								"colors"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "http://localhost:3000",
+			"type": "string"
+		}
+	]
+}
