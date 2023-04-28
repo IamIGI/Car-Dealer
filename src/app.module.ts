@@ -6,8 +6,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { UsersModule } from './users/users.module';
 import { ReportsModule } from './reports/reports.module';
-import { User } from './users/user.entity';
-import { Report } from './reports/report.entity';
+import { TypeOrmConfigService } from './config/typeorm.config';
 const cookieSession = require('cookie-session');
 
 @Module({
@@ -16,18 +15,7 @@ const cookieSession = require('cookie-session');
       isGlobal: true,
       envFilePath: `.env.${process.env.NODE_ENV}`,
     }),
-    TypeOrmModule.forRootAsync({
-      inject: [ConfigService],
-      useFactory: (config: ConfigService) => {
-        console.log(config.get('DB_NAME'));
-        return {
-          type: 'sqlite',
-          database: config.get<string>('DB_NAME'),
-          synchronize: true, //you can see changed entity in real time, useful during development. Better turn off for production
-          entities: [User, Report],
-        };
-      },
-    }),
+    TypeOrmModule.forRootAsync({ useClass: TypeOrmConfigService }), // for TypeORM config #1
     UsersModule,
     ReportsModule,
   ],
