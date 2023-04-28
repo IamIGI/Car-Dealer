@@ -1,5 +1,5 @@
 # Migration (read the comments)
-https://www.udemy.com/course/nestjs-the-complete-developers-guide/learn/lecture/27738752#questions/17668662
+https://www.udemy.com/course/nestjs-the-complete-developers-guide/learn/lecture/27738758#questions/18673674
 
 <p align="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
